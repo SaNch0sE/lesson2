@@ -6,7 +6,7 @@ const UserSchema = new Schema({
         type: String,
         trim: true
     },
-    password: {
+    fullName: {
         type: String,
         trim: true
     }

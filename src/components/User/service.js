@@ -1,5 +1,5 @@
 const UserModel = require('./model');
-
+const v = require('./validation.js')
 module.exports = {
     /**
      * @exports
@@ -19,7 +19,10 @@ module.exports = {
      * @returns Promise<UserModel[]>
      */
     async create(req) {
-        return await UserModel.create({email: req.email, password: req.password});
+        const data = v.val({email: req.email, fullName: req.fullName});
+        if(!data.error) {return await UserModel.create(data.value);} else {
+            throw data.error;
+        }
     },
     /**
      * @exports
@@ -29,6 +32,9 @@ module.exports = {
      * @returns Promise<UserModel[]>
      */
     async remove(req) {
-        return await UserModel.findOneAndRemove({email: req.email});
+        const data = v.val({email: req.email, fullName: req.fullName});
+        if(!data.error) {return UserModel.findOneAndRemove(data.value);}
+        else {throw data.error;}
+        //return await UserModel.remove({});
     }
 };
