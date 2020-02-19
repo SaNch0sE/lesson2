@@ -18,4 +18,24 @@ const router = Router();
  */
 router.get('/',  UserComponent.findAll);
 
+/**
+ * Route creating new user.
+ * @name /v1/users/create
+ * @function
+ * @inner
+ * @param {string} path - Express path
+ * @param {callback} middleware - Express middleware.
+ */
+router.get('/create',  UserComponent.create);
+
+/**
+ * Route deleting the user by mail.
+ * @name /v1/users/create
+ * @function
+ * @inner
+ * @param {string} path - Express path
+ * @param {callback} middleware - Express middleware.
+ */
+router.get('/remove',  UserComponent.remove);
+
 module.exports = router;

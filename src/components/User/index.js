@@ -17,6 +17,28 @@ async function findAll(req, res, next) {
     }
 }
 
+async function create(req, res, next) {
+    try {
+        const user = await UserService.create(req.query);
+
+        res.status(200).json(user);
+    } catch (error) {
+        next(error);
+    }
+}
+
+async function remove(req, res, next) {
+    try {
+        const user = await UserService.remove(req.query);
+
+        res.status(200).json(user);
+    } catch (error) {
+        next(error);
+    }
+}
+
 module.exports = {
-    findAll
+    findAll,
+    create,
+    remove
 }
