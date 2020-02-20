@@ -4,7 +4,8 @@ const connections = require('../../config/connection');
 const UserSchema = new Schema({
     email: {
         type: String,
-        trim: true
+        trim: true,
+        unique: true
     },
     fullName: {
         type: String,

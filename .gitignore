@@ -1,3 +1,4 @@
 .git
+.idea
 .eslintrc
 node_modules/

@@ -1,4 +1,6 @@
 {
+    "signal": "SIGHUP",
     "watch": ["src"],
-    "exec": "node ./src/server/index.js"
+    "exec": "fuser -k 3000/tcp && node ./src/server/index.js",
+    "delay": "2500"
 }

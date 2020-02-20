@@ -19,6 +19,16 @@ const router = Router();
 router.get('/',  UserComponent.findAll);
 
 /**
+ * Route serving one user by email.
+ * @name /v1/users/find
+ * @function
+ * @inner
+ * @param {string} path - Express path
+ * @param {callback} middleware - Express middleware.
+ */
+router.get('/find',  UserComponent.find);
+
+/**
  * Route creating new user.
  * @name /v1/users/create
  * @function
@@ -27,6 +37,16 @@ router.get('/',  UserComponent.findAll);
  * @param {callback} middleware - Express middleware.
  */
 router.get('/create',  UserComponent.create);
+
+/**
+ * Route updating user.
+ * @name /v1/users/update
+ * @function
+ * @inner
+ * @param {string} path - Express path
+ * @param {callback} middleware - Express middleware.
+ */
+router.get('/update',  UserComponent.update);
 
 /**
  * Route deleting the user by mail.

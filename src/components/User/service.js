@@ -9,7 +9,20 @@ module.exports = {
      * @returns Promise<UserModel[]>
      */
     async findAll() {
-        return await UserModel.find({});
+        return UserModel.find({});
+    },
+    /**
+     * @exports
+     * @method find
+     * @param {req}
+     * @summary get one user
+     * @returns Promise<UserModel[]>
+     */
+    async find(req) {
+        const data = v.val({email: req.email});
+        if(!data.error) {return UserModel.find(data.value);} else {
+            throw data.error;
+        }
     },
     /**
      * @exports
@@ -20,7 +33,20 @@ module.exports = {
      */
     async create(req) {
         const data = v.val({email: req.email, fullName: req.fullName});
-        if(!data.error) {return await UserModel.create(data.value);} else {
+        if(!data.error) {return UserModel.create(data.value);} else {
+            throw data.error;
+        }
+    },
+    /**
+     * @exports
+     * @method update
+     * @param {req}
+     * @summary update user info
+     * @returns Promise<UserModel[]>
+     */
+    async update(req) {
+        const data = v.val({email: req.email, fullName: req.fullName});
+        if(!data.error) {return UserModel.updateOne({email: data.value.email}, {fullName: data.value.fullName});} else {
             throw data.error;
         }
     },
@@ -32,9 +58,11 @@ module.exports = {
      * @returns Promise<UserModel[]>
      */
     async remove(req) {
-        const data = v.val({email: req.email, fullName: req.fullName});
-        if(!data.error) {return UserModel.findOneAndRemove(data.value);}
-        else {throw data.error;}
-        //return await UserModel.remove({});
+        const data = v.val({email: req.email});
+        if(!data.error) {return UserModel.deleteOne(data.value);}
+        else {
+            throw data.error;
+        }
+        // return await UserModel.remove({});
     }
 };
