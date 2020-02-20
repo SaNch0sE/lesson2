@@ -1,9 +1,9 @@
-### Validation
+### Validation: done
 ```
     https://hapi.dev/family/joi/
 ```
 
-### Find User
+### Find User: done
 ```
     curl --location --request GET 'localhost:3000/v1/users/find' \
     --header 'Content-Type: application/json' \
@@ -12,7 +12,7 @@
     }'
 ```
 
-### Create User
+### Create User: done
 ```
     curl --location --request POST 'localhost:3000/v1/users/create' \
     --header 'Content-Type: application/json' \
@@ -22,7 +22,7 @@
     }'
 ```
 
-### Update User
+### Update User: done
 ```
     curl --location --request PUT 'localhost:3000/v1/users/update' \
     --header 'Content-Type: application/json' \
@@ -32,7 +32,7 @@
     }'
 ```
 
-### Delete User
+### Delete User: done
 ```
     curl --location --request DELETE 'localhost:3000/v1/users/delete' \
     --header 'Content-Type: application/json' \
