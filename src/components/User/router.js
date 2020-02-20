@@ -1,5 +1,5 @@
-const { Router } =  require('express');
-const UserComponent =  require('../User');
+const { Router } = require('express');
+const UserComponent = require('../User');
 
 /**
  * Express router to mount user related functions on.
@@ -16,7 +16,7 @@ const router = Router();
  * @param {string} path - Express path
  * @param {callback} middleware - Express middleware.
  */
-router.get('/',  UserComponent.findAll);
+router.get('/', UserComponent.findAll);
 
 /**
  * Route serving one user by email.
@@ -26,7 +26,7 @@ router.get('/',  UserComponent.findAll);
  * @param {string} path - Express path
  * @param {callback} middleware - Express middleware.
  */
-router.get('/find',  UserComponent.find);
+router.get('/find', UserComponent.find);
 
 /**
  * Route creating new user.
@@ -36,8 +36,7 @@ router.get('/find',  UserComponent.find);
  * @param {string} path - Express path
  * @param {callback} middleware - Express middleware.
  */
-router.get('/create',  UserComponent.create);
-
+router.post('/create', UserComponent.create);
 /**
  * Route updating user.
  * @name /v1/users/update
@@ -46,8 +45,7 @@ router.get('/create',  UserComponent.create);
  * @param {string} path - Express path
  * @param {callback} middleware - Express middleware.
  */
-router.get('/update',  UserComponent.update);
-
+router.put('/update', UserComponent.update);
 /**
  * Route deleting the user by mail.
  * @name /v1/users/create
@@ -56,6 +54,6 @@ router.get('/update',  UserComponent.update);
  * @param {string} path - Express path
  * @param {callback} middleware - Express middleware.
  */
-router.get('/remove',  UserComponent.remove);
+router.delete('/delete', UserComponent.remove);
 
 module.exports = router;

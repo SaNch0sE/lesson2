@@ -25,7 +25,7 @@ async function findAll(req, res, next) {
  */
 async function find(req, res, next) {
     try {
-        const users = await UserService.find(req.query);
+        const users = await UserService.find(req.body);
 
         res.status(200).json(users);
     } catch (error) {
@@ -41,7 +41,7 @@ async function find(req, res, next) {
  */
 async function create(req, res, next) {
     try {
-        const user = await UserService.create(req.query);
+        const user = await UserService.create(req.body);
 
         res.status(200).json(user);
     } catch (error) {
@@ -57,7 +57,7 @@ async function create(req, res, next) {
  */
 async function update(req, res, next) {
     try {
-        const user = await UserService.update(req.query);
+        const user = await UserService.update(req.body);
 
         res.status(200).json(user);
     } catch (error) {
@@ -73,7 +73,7 @@ async function update(req, res, next) {
  */
 async function remove(req, res, next) {
     try {
-        const user = await UserService.remove(req.query);
+        const user = await UserService.remove(req.body);
 
         res.status(200).json(user);
     } catch (error) {

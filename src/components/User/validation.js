@@ -12,8 +12,7 @@ function val(req) {
     try {
         const data = schema.validate(req);
         return data;
-    }
-    catch (err) {console.error(err);}
+    } catch (err) { return console.error(err); }
 }
 
-module.exports = {val}
+module.exports = { val };
